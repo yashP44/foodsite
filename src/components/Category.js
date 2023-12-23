@@ -9,7 +9,7 @@ const Category = () => {
         config: { duration: 2000 },
     })
     return (
-        <div className='max-w-[1640px]  m-auto px-4 py-12 border border-b-2'>
+        <div id='#category' className='max-w-[1640px]  m-auto px-4 py-12 border border-b-2'>
             <animated.h1 style={springs1} className='text-gradient font-bold text-4xl text-center'>
                 Category
             </animated.h1>

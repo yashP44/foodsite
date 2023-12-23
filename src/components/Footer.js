@@ -1,22 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import favicon from '../img/favicon.jpg'
+
 const Footer = () => {
     return (
         <footer className="text-gray-600 body-font">
             <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
                 <div className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                     <Link to='/'>
-                        <h1 className='font-light text-2xl sm:text-3xl lg:text-4xl px-2'>Flavor
-                            <span className='font-bold text-gradient'>Fiesta.
-                            </span>
-                        </h1></Link>
+                        <img src={favicon} alt='not found' className='h-16 w-auto' />
+                    </Link>
                 </div>
                 <h2 className="text-sm text-black sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023
                     <Link to='/'>
-                        <span className='font-light  px-2'>Big
-                            <span className='font-bold text-gradient'>Foodies.
+                        <span className='font-light  px-2'>Flavor
+                            <span className='font-bold text-gradient'>Fiesta.
                             </span>
-                        </span></Link>
+                        </span>
+                    </Link>
                     <p className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">#foodies&nbsp;#foodhunter</p>
                 </h2>
                 <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

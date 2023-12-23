@@ -1,8 +1,21 @@
 import React, { useState } from 'react'
 import { data } from '../data/data.js';
 import { useSpring, animated } from '@react-spring/web'
+import { FaHeart, FaPlus } from 'react-icons/fa';
 
 const FoodType = () => {
+    const [likedItems, setLikedItems] = useState([]);
+
+    const addLike = (itemId) => {
+        // Check if the item is already liked
+        if (!likedItems.includes(itemId)) {
+            // If not liked, add it to the likedItems state
+            setLikedItems([...likedItems, itemId]);
+        } else {
+            // If already liked, remove it from the likedItems state
+            setLikedItems(likedItems.filter((id) => id !== itemId));
+        }
+    };
     var min = 1;
     var max = 100;
     const randomNum = () => {
@@ -87,7 +100,7 @@ const FoodType = () => {
                     <div className='flex justify-between max-w-[390px] w-full'>
                         <button
                             onClick={() => filterPrice(10, 30)}
-                            className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:duration-500'
+                            className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white hover:duration-700'
                         >
                             10-30
                         </button>
@@ -118,12 +131,12 @@ const FoodType = () => {
                 {foods.map((item, index) => (
                     <div
                         key={index}
-                        className='border shadow-lg rounded-lg hover:scale-105 duration-300 hover:bg-slate-200'
+                        className='relative border shadow-lg rounded-lg hover:scale-105 duration-300 hover:bg-slate-200'
                     >
                         <img
                             src={item.image}
                             alt={item.name}
-                            className='w-full h-[200px] object-cover rounded-t-lg'
+                            className='w-full h-[200px] object-cover rounded-t-lg '
                         />
                         <div className='flex justify-between px-2 py-4'>
                             <p className='font-semibold text-primary'>{item.name}</p>
@@ -133,6 +146,11 @@ const FoodType = () => {
                                 </span>
                             </p>
                         </div>
+                        <FaHeart
+                            size={40}
+                            className={`${likedItems.includes(item.id) ? 'text-red-500' : 'text-white'} absolute top-5 right-5`}
+                            onClick={() => addLike(item.id)}
+                        />
                     </div>
                 ))}
             </div>
